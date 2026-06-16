@@ -1,30 +1,53 @@
 export const SITE_CONFIG = {
-  name: 'רוי',
-  fullName: 'Roy Barber',
+  name: 'RoyHouse',
   phone: '+972-XX-XXXXXXX',
   whatsappNumber: '972XXXXXXXXX',
   get whatsappLink() {
     return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent('היי רוי, אני רוצה לקבוע תור 💈')}`
   },
   get whatsappCoursesLink() {
-    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent('היי רוי, אני מעוניין לשמוע על הקורסים שלך 📚')}`
+    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent('היי רוי, אני רוצה לשמוע על הקורס 📚')}`
   },
-  instagram: 'https://instagram.com/roybarber_il',
+  instagram: 'https://instagram.com/royhouse_il',
   address: 'תל אביב, ישראל',
   hours: 'ראשון–שישי: 09:00–20:00',
-  email: 'roy@roybarber.co.il',
+  email: 'roy@royhouse.co.il',
   yearsExperience: 10,
-  studentsCount: 500,
+  studentsCount: 200,
   clientsCount: 3000,
 } as const
 
 export const NAV_LINKS = [
+  { label: 'הקורס', href: '#course' },
   { label: 'אודות', href: '#about' },
-  { label: 'שירותים', href: '#services' },
-  { label: 'גלריה', href: '#gallery' },
-  { label: 'קורסים', href: '#courses' },
   { label: 'המלצות', href: '#testimonials' },
-  { label: 'שאלות נפוצות', href: '#faq' },
+] as const
+
+export const PAIN_POINTS = [
+  {
+    id: 1,
+    icon: '😤',
+    title: 'לומד מיוטיוב',
+    text: 'אתה מנסה ללמוד מסרטונים אבל אף פעם לא בטוח שאתה עושה את זה נכון — ואין מי שיגיד לך.',
+  },
+  {
+    id: 2,
+    icon: '💸',
+    title: 'שווה יותר, מרוויח פחות',
+    text: 'יודע שאתה שווה יותר — אבל לא מצליח להצדיק מחיר גבוה ללקוחות.',
+  },
+  {
+    id: 3,
+    icon: '🔄',
+    title: 'תקוע באותו מקום',
+    text: 'אותם לקוחות, אותן תספורות, אותה הכנסה — כל חודש מחדש, בלי התקדמות.',
+  },
+  {
+    id: 4,
+    icon: '🎯',
+    title: 'חסרה לך השיטה',
+    text: 'חסר לך הדבר שמפריד ספרים בינוניים מספרים שאנשים ממליצים עליהם לכולם.',
+  },
 ] as const
 
 export const SERVICES = [
@@ -63,13 +86,23 @@ export const SERVICES = [
   },
 ] as const
 
+export const COURSE_FEATURES = [
+  'טכניקות Fade & Taper מתקדמות — מהבסיס לשליטה מלאה',
+  'עיצוב זקן וקווים מדויקים — כל סוג, כל צורת פנים',
+  'איך לעלות מחירים נכון — בלי לאבד לקוחות',
+  'שיטה לבנות לקוחות שחוזרים ומביאים חברים',
+  'ניהול עסק ספרות רווחי — תמחור, שיווק, מיתוג',
+  'ליווי אישי של 3 חודשים אחרי הקורס',
+  'תעודה מוכרת לפתיחת עסק',
+] as const
+
 export const COURSES = [
   {
     id: 'foundation',
-    title: 'קורס ספרות — מקצועי',
+    title: 'קורס ספרות מקצועי',
     subtitle: 'מהבסיס למקצוען',
     description:
-      'הכל מאפס — כלים, טכניקות, עבודה עם לקוחות, ועסק רווחי. הקורס המלא שתאמין בו.',
+      'שיטת העבודה המלאה — מהחתך הראשון ועד ללקוח שחוזר ומביא חברים. לא תיאוריה. טכניקה אמיתית, בשטח.',
     duration: '8 שבועות',
     modules: 12,
     price: '2,990',
@@ -110,39 +143,27 @@ export const COURSES = [
 export const TESTIMONIALS = [
   {
     id: 1,
-    name: 'יוסי כהן',
-    role: 'בוגר קורס ספרות',
-    text: 'הקורס של רוי שינה לי את החיים. תוך 3 חודשים פתחתי ספרייה משלי וכבר יש לי 80 לקוחות קבועים.',
+    name: 'יוסי כ.',
+    location: 'תל אביב',
+    text: 'אחרי הקורס הכפלתי את המחיר שלי ואף לקוח לא הלך. הייתי מוכן לזה — זה מה שהקורס נותן.',
     rating: 5,
-    type: 'course',
     emoji: '✂️',
   },
   {
     id: 2,
-    name: 'דני לוי',
-    role: 'לקוח קבוע',
-    text: 'באתי לפני שנה בלי לדעת מה אני רוצה. רוי הבין מה מתאים לי יותר ממני. מאז אני בא כל 3 שבועות.',
+    name: 'אדם מ.',
+    location: 'חיפה',
+    text: 'סוף סוף מישהו שמסביר את ה-Fade בצורה שאפשר לחזור עליה. לא מזל — שיטה. אחרי שבוע ראשון כבר ראיתי תוצאות.',
     rating: 5,
-    type: 'service',
-    emoji: '👑',
+    emoji: '✦',
   },
   {
     id: 3,
-    name: 'אמיר שפירו',
-    role: 'בוגר קורס ספרות',
-    text: 'ניסיתי קורסים אחרים — אין מה להשוות. רוי מלמד בצורה מקצועית ואמיתית. כל שקל שווה.',
+    name: 'רועי ש.',
+    location: 'ירושלים',
+    text: 'השקעתי בקורס ותוך חודש החזרתי פי 3 את הסכום. אין ויכוח — זו ההשקעה הטובה ביותר שעשיתי.',
     rating: 5,
-    type: 'course',
-    emoji: '🎓',
-  },
-  {
-    id: 4,
-    name: 'מיכאל ברק',
-    role: 'לקוח קבוע',
-    text: 'הכי טוב שניסיתי בתל אביב. תמיד יוצא מרוצה. האווירה, הסגנון, הרמה — הכל פרימיום.',
-    rating: 5,
-    type: 'service',
-    emoji: '⭐',
+    emoji: '★',
   },
 ] as const
 

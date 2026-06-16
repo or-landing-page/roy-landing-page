@@ -5,122 +5,142 @@ import { SITE_CONFIG } from '@/lib/constants'
 
 export function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      aria-label="Hero section"
-    >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(201,168,76,0.08)_0%,_transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(201,168,76,0.05)_0%,_transparent_50%)]" />
-
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-background">
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage:
-            'linear-gradient(rgba(201,168,76,1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
+          backgroundImage: `
+            repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(184,150,62,0.03) 60px),
+            repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(184,150,62,0.03) 60px)
+          `,
         }}
         aria-hidden="true"
       />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      {/* Gold radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 60% at 50% 60%, rgba(184,150,62,0.07) 0%, transparent 65%), linear-gradient(180deg, #080808 0%, #0c0a05 50%, #080808 100%)',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 px-6 max-w-4xl mx-auto pb-24">
+        {/* Eyebrow */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6 }}
+          className="text-gold text-[10px] tracking-[8px] uppercase font-semibold mb-8"
         >
-          <motion.p
-            className="text-gold text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase mb-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            ספר מקצועי · תל אביב
-          </motion.p>
+          Luxury Barbershop · Professional Course
+        </motion.p>
 
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black text-text-primary leading-[1.05] mb-6">
-            אמנות
-            <br />
-            <span className="text-gold relative">
-              הספרות
-              <motion.span
-                className="absolute -bottom-2 start-0 end-0 h-px bg-gold/30"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-              />
-            </span>
-          </h1>
+        {/* Logo / Main headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="font-display font-light text-cream leading-[1.05] mb-6"
+          style={{ fontSize: 'clamp(52px, 10vw, 110px)', letterSpacing: '12px' }}
+        >
+          RoyHouse
+        </motion.h1>
 
-          <p className="text-text-muted text-base sm:text-xl max-w-2xl mx-auto mb-3 leading-relaxed">
-            {SITE_CONFIG.yearsExperience}+ שנות ניסיון. סטנדרט של מצוינות.
-          </p>
-          <p className="text-text-muted text-base sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-            כי כל גבר ראוי לנראות הטובה ביותר שלו.
-          </p>
+        {/* Divider */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="flex items-center gap-4 justify-center mb-8 w-64 mx-auto"
+        >
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
+          <div className="w-2 h-2 bg-gold rotate-45 flex-shrink-0" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         </motion.div>
 
-        {/* Stats */}
-        <motion.div
-          className="flex justify-center gap-10 sm:gap-16 mb-12"
-          initial={{ opacity: 0, y: 20 }}
+        {/* Sub headline italic */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="font-display font-light italic text-gold-light mb-10"
+          style={{ fontSize: 'clamp(16px, 2.5vw, 24px)', letterSpacing: '4px' }}
         >
-          {[
-            { value: `${SITE_CONFIG.yearsExperience}+`, label: 'שנות ניסיון' },
-            { value: `${SITE_CONFIG.studentsCount}+`, label: 'סטודנטים בוגרים' },
-            { value: `${SITE_CONFIG.clientsCount}+`, label: 'לקוחות מרוצים' },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-2xl sm:text-3xl font-black text-gold">{stat.value}</p>
-              <p className="text-text-muted text-xs sm:text-sm mt-1">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
+          האמנות שמגדירה אותך.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="text-text-muted text-sm font-light max-w-md mx-auto mb-12 leading-relaxed"
+        >
+          הקורס שיהפוך אותך מספר טוב — לספר שכולם מדברים עליו
+        </motion.p>
 
         {/* CTAs */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
-            href={SITE_CONFIG.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gold hover:bg-gold-light text-background font-black px-8 py-4 rounded-lg text-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-gold/20 w-full sm:w-auto"
+            href="#course"
+            className="bg-gold hover:bg-gold-light text-background font-bold px-10 py-4 text-[10px] tracking-[3px] uppercase transition-all duration-200 hover:scale-105"
           >
-            קבע תור עכשיו →
+            לקורס המלא ←
           </a>
           <a
-            href="#courses"
-            className="border border-gold/40 hover:border-gold text-gold font-bold px-8 py-4 rounded-lg text-lg transition-all duration-200 hover:bg-gold/5 w-full sm:w-auto"
+            href="#about"
+            className="border border-gold/40 hover:border-gold text-cream font-semibold px-10 py-4 text-[10px] tracking-[3px] uppercase transition-all duration-200 hover:bg-gold/5"
           >
-            לקורסים המקצועיים
+            גלה עוד ↓
           </a>
         </motion.div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 start-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
         aria-hidden="true"
       >
-        <p className="text-text-muted text-xs tracking-widest uppercase">גלול למטה</p>
-        <motion.div
-          className="w-px h-10 bg-gradient-to-b from-gold/50 to-transparent"
-          animate={{ scaleY: [1, 0.5, 1], opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
+        <div className="w-px h-8 bg-gradient-to-b from-transparent to-gold mx-auto" />
+        <span className="text-text-muted text-[9px] tracking-[4px] uppercase">גלול</span>
+      </motion.div>
+
+      {/* Stats bar */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.9 }}
+        className="absolute bottom-0 left-0 right-0 border-t border-border bg-surface/60 backdrop-blur-sm"
+      >
+        <div className="max-w-3xl mx-auto px-6 py-4 flex justify-center gap-12 sm:gap-20">
+          {[
+            { value: `${SITE_CONFIG.yearsExperience}+`, label: 'שנות ניסיון' },
+            { value: `${SITE_CONFIG.studentsCount}+`, label: 'בוגרי קורסים' },
+            { value: `${SITE_CONFIG.clientsCount.toLocaleString()}+`, label: 'לקוחות' },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div
+                className="font-display font-light text-gold text-xl"
+                style={{ letterSpacing: '2px' }}
+              >
+                {stat.value}
+              </div>
+              <div className="text-text-muted text-[10px] tracking-[2px] uppercase mt-0.5">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
       </motion.div>
     </section>
   )

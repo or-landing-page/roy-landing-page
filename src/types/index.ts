@@ -27,13 +27,19 @@ export interface Course {
   features: readonly string[]
 }
 
+export interface PainPoint {
+  id: number
+  icon: string
+  title: string
+  text: string
+}
+
 export interface Testimonial {
   id: number
   name: string
-  role: string
+  location: string
   text: string
   rating: number
-  type: 'service' | 'course'
   emoji: string
 }
 

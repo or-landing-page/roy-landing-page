@@ -1,44 +1,49 @@
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { SectionTitle } from '@/components/ui/SectionTitle'
 import { TESTIMONIALS } from '@/lib/constants'
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 sm:py-28 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="testimonials" className="py-24 sm:py-32 bg-surface">
+      <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>
-          <SectionTitle
-            eyebrow="מה אומרים עלינו"
-            title="הלקוחות"
-            titleHighlight="מדברים"
-            centered
-          />
+          <p className="text-gold text-[10px] tracking-[6px] uppercase font-semibold mb-6 text-center">
+            המלצות
+          </p>
+          <h2
+            className="font-display font-light text-cream text-center leading-[1.15] mb-16"
+            style={{ fontSize: 'clamp(28px, 5vw, 52px)' }}
+          >
+            מה אומרים{' '}
+            <em className="text-gold-light not-italic font-light italic">הבוגרים</em>
+          </h2>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {TESTIMONIALS.map((t, i) => (
-            <AnimatedSection key={t.id} delay={i * 0.1}>
-              <div className="h-full bg-background rounded-2xl border border-border hover:border-gold/20 p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-gold/5">
+            <AnimatedSection key={t.id} delay={i * 0.1} direction="up">
+              <div className="h-full bg-surface-2/50 border border-border hover:border-gold/25 p-7 flex flex-col transition-all duration-300">
                 {/* Stars */}
-                <div className="flex gap-0.5 mb-4" aria-label={`דירוג: ${t.rating} מתוך 5`}>
+                <div className="flex gap-1 mb-5" aria-label={`דירוג: ${t.rating} מתוך 5`}>
                   {Array.from({ length: 5 }).map((_, s) => (
-                    <span key={s} className="text-gold text-sm" aria-hidden="true">
+                    <span key={s} className="text-gold text-xs" aria-hidden="true">
                       ★
                     </span>
                   ))}
                 </div>
 
-                <p className="text-text-muted text-sm leading-relaxed flex-1 mb-5">
+                {/* Quote */}
+                <blockquote className="font-display font-light italic text-cream/80 leading-relaxed flex-1 mb-6" style={{ fontSize: '15px' }}>
                   &ldquo;{t.text}&rdquo;
-                </p>
+                </blockquote>
 
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="w-10 h-10 rounded-full bg-surface-2 border border-border flex items-center justify-center text-lg flex-shrink-0">
+                {/* Author */}
+                <div className="border-t border-border pt-4 flex items-center gap-3">
+                  <div className="w-9 h-9 bg-surface border border-border flex items-center justify-center text-sm flex-shrink-0">
                     {t.emoji}
                   </div>
                   <div>
-                    <p className="text-text-primary font-bold text-sm">{t.name}</p>
-                    <p className="text-text-muted text-xs">{t.role}</p>
+                    <p className="text-cream font-semibold text-xs tracking-wide">{t.name}</p>
+                    <p className="text-text-muted text-[10px] tracking-[1px]">{t.location}</p>
                   </div>
                 </div>
               </div>
