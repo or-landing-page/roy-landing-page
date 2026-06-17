@@ -7,11 +7,33 @@ import { SITE_CONFIG, NAV_LINKS } from '@/lib/constants'
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState<string>('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Scroll spy via IntersectionObserver
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map((l) => l.href.replace('#', ''))
+    const observers: IntersectionObserver[] = []
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id)
+        },
+        { rootMargin: '-40% 0px -55% 0px' }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+
+    return () => observers.forEach((obs) => obs.disconnect())
   }, [])
 
   return (
@@ -23,7 +45,7 @@ export function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo — Cormorant display font */}
+        {/* Logo */}
         <a
           href="#"
           className="font-display font-light text-cream tracking-[6px] uppercase text-lg hover:text-gold transition-colors duration-200"
@@ -33,16 +55,22 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-8" role="list">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-text-muted hover:text-cream text-[11px] font-semibold tracking-[3px] uppercase transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const id = link.href.replace('#', '')
+            const isActive = activeSection === id
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={`text-[11px] font-semibold tracking-[3px] uppercase transition-colors duration-200 ${
+                    isActive ? 'text-gold' : 'text-text-muted hover:text-cream'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         {/* Desktop CTA */}
@@ -52,7 +80,7 @@ export function Navbar() {
           rel="noopener noreferrer"
           className="hidden md:inline-flex bg-gold hover:bg-gold-light text-background font-bold px-6 py-2.5 text-[10px] tracking-[2px] uppercase transition-all duration-200 hover:scale-105"
         >
-          לקורס ←
+          הצטרף לקורס ←
         </a>
 
         {/* Mobile hamburger */}
@@ -103,7 +131,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-gold text-background font-bold px-6 py-3 text-[10px] tracking-[2px] uppercase"
                 >
-                  לקורס ←
+                  הצטרף לקורס ←
                 </a>
               </li>
             </ul>

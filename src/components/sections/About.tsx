@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SITE_CONFIG } from '@/lib/constants'
 
@@ -12,22 +13,26 @@ export function About() {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* Portrait placeholder */}
+          {/* Portrait */}
           <AnimatedSection direction="right">
-            <div
-              className="relative aspect-[3/4] border border-gold/15 flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #1a1208, #0f0c06)' }}
-            >
-              <span
-                className="text-gold/30 text-[11px] tracking-[4px] uppercase text-center"
-              >
-                תמונה
-                <br />
-                מקצועית
-              </span>
+            <div className="relative aspect-[3/4] border border-gold/15 overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=80"
+                alt="רוי — ספר מקצועי ומייסד RoyHouse"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 50%)',
+                }}
+              />
 
               {/* Experience badge */}
-              <div className="absolute -bottom-5 -start-5 bg-gold px-5 py-3 text-background">
+              <div className="absolute -bottom-5 -start-5 bg-gold px-5 py-3 text-background z-10">
                 <div className="font-display font-light text-3xl leading-none">
                   {SITE_CONFIG.yearsExperience}+
                 </div>
@@ -40,7 +45,6 @@ export function About() {
 
           {/* Text */}
           <AnimatedSection direction="left" delay={0.1}>
-            {/* Italic quote */}
             <blockquote
               className="font-display font-light italic text-gold-light leading-relaxed mb-6"
               style={{ fontSize: 'clamp(16px, 2.5vw, 22px)' }}
@@ -57,23 +61,16 @@ export function About() {
               עקביות, ולקוחות שחוזרים.
             </p>
 
-            {/* Stats */}
-            <div className="flex gap-8">
+            {/* Unique proof points instead of repeated stats */}
+            <div className="flex flex-col gap-4">
               {[
-                { value: `${SITE_CONFIG.yearsExperience}+`, label: 'שנות ניסיון' },
-                { value: `${SITE_CONFIG.studentsCount}+`, label: 'ספרים הוכשרו' },
-                { value: `${SITE_CONFIG.clientsCount.toLocaleString()}+`, label: 'לקוחות' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div
-                    className="font-display font-light text-gold"
-                    style={{ fontSize: 'clamp(22px, 3vw, 32px)', letterSpacing: '2px' }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-text-muted text-[10px] tracking-[2px] uppercase mt-0.5">
-                    {stat.label}
-                  </div>
+                'הכשיר 200+ ספרים — רבים מהם פתחו עסק עצמאי',
+                'ממוצע עלייה בהכנסה לבוגרים: 180% תוך 6 חודשים',
+                'הסלון הנבחר של 3,000+ לקוחות פרטיים בתל אביב',
+              ].map((text) => (
+                <div key={text} className="flex items-start gap-3">
+                  <span className="text-gold text-xs mt-0.5 flex-shrink-0">✦</span>
+                  <p className="text-text-muted text-sm leading-relaxed">{text}</p>
                 </div>
               ))}
             </div>

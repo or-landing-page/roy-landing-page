@@ -1,11 +1,31 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-background">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&q=80"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-25"
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.35) 40%, rgba(8,8,8,0.85) 80%, #080808 100%)',
+          }}
+        />
+      </div>
+
       {/* Grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -23,7 +43,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 60%, rgba(184,150,62,0.07) 0%, transparent 65%), linear-gradient(180deg, #080808 0%, #0c0a05 50%, #080808 100%)',
+            'radial-gradient(ellipse 80% 60% at 50% 60%, rgba(184,150,62,0.06) 0%, transparent 65%)',
         }}
         aria-hidden="true"
       />
@@ -36,7 +56,7 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="text-gold text-[10px] tracking-[8px] uppercase font-semibold mb-8"
         >
-          Luxury Barbershop · Professional Course
+          ספרות יוקרה · קורס מקצועי
         </motion.p>
 
         {/* Logo / Main headline */}
@@ -62,7 +82,7 @@ export function Hero() {
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         </motion.div>
 
-        {/* Sub headline italic */}
+        {/* Sub headline */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,7 +107,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10"
         >
           <a
             href="#course"
@@ -101,6 +121,22 @@ export function Hero() {
           >
             גלה עוד ↓
           </a>
+        </motion.div>
+
+        {/* Trust signals — above fold */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.75 }}
+          className="flex flex-wrap justify-center gap-5 text-[10px] text-text-muted tracking-[2px] uppercase"
+        >
+          <span>★ 200+ בוגרים</span>
+          <span className="text-gold/30">·</span>
+          <span>{SITE_CONFIG.yearsExperience} שנות ניסיון</span>
+          <span className="text-gold/30">·</span>
+          <span>תעודה מוכרת</span>
+          <span className="text-gold/30">·</span>
+          <span>ליווי 3 חודשים</span>
         </motion.div>
       </div>
 
@@ -120,7 +156,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.9 }}
-        className="absolute bottom-0 left-0 right-0 border-t border-border bg-surface/60 backdrop-blur-sm"
+        className="absolute bottom-0 left-0 right-0 border-t border-border bg-surface/70 backdrop-blur-sm"
       >
         <div className="max-w-3xl mx-auto px-6 py-4 flex justify-center gap-12 sm:gap-20">
           {[

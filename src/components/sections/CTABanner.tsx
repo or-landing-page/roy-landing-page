@@ -7,7 +7,7 @@ export function CTABanner() {
       className="py-24 sm:py-32 bg-background relative overflow-hidden text-center"
       style={{
         background:
-          'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184,150,62,0.08) 0%, transparent 60%), #080808',
+          'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184,150,62,0.1) 0%, transparent 60%), #080808',
         borderTop: '1px solid rgba(184,150,62,0.15)',
       }}
     >
@@ -29,20 +29,39 @@ export function CTABanner() {
           </h2>
 
           <p className="text-text-muted text-sm font-light max-w-md mx-auto mb-10 leading-relaxed">
-            מקומות מוגבלים לקורס הקרוב. אל תחכה.
+            נשארו 3 מקומות בלבד לקורס יולי 2025. אל תחכה.
           </p>
 
+          {/* Primary CTA */}
           <a
             href={SITE_CONFIG.whatsappCoursesLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-gold hover:bg-gold-light text-background font-bold px-12 py-5 text-[11px] tracking-[3px] uppercase transition-all duration-200 hover:scale-105 shadow-2xl"
-            style={{ boxShadow: '0 20px 60px rgba(184,150,62,0.2)' }}
+            className="inline-block bg-gold hover:bg-gold-light text-background font-bold px-12 py-5 text-[11px] tracking-[3px] uppercase transition-all duration-200 hover:scale-105 mb-4"
+            style={{ boxShadow: '0 20px 60px rgba(184,150,62,0.25)' }}
           >
             הצטרף לקורס עכשיו ←
           </a>
 
-          <p className="text-text-muted text-[10px] tracking-[2px] uppercase mt-6">
+          {/* Secondary CTA — phone */}
+          <div className="mb-8">
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="text-text-muted hover:text-gold text-[10px] tracking-[3px] uppercase transition-colors duration-200"
+            >
+              או התקשר ישירות: {SITE_CONFIG.phone}
+            </a>
+          </div>
+
+          {/* Risk reversal */}
+          <div className="border border-border/50 px-6 py-4 max-w-sm mx-auto mb-8">
+            <p className="text-text-muted text-[10px] tracking-[1px] leading-relaxed">
+              לא מרוצה מהמפגש הראשון?{' '}
+              <span className="text-cream font-semibold">החזר כספי מלא — ללא שאלות.</span>
+            </p>
+          </div>
+
+          <p className="text-text-muted text-[10px] tracking-[2px] uppercase">
             מקומות מוגבלים · RoyHouse © {new Date().getFullYear()}
           </p>
         </AnimatedSection>

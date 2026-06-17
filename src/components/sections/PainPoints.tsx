@@ -1,5 +1,8 @@
+import { Monitor, TrendingUp, RefreshCw, Target } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { PAIN_POINTS } from '@/lib/constants'
+
+const ICONS = [Monitor, TrendingUp, RefreshCw, Target] as const
 
 export function PainPoints() {
   return (
@@ -24,15 +27,35 @@ export function PainPoints() {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {PAIN_POINTS.map((point, i) => (
-            <AnimatedSection key={point.id} delay={i * 0.1} direction="up">
-              <div className="group h-full bg-surface-2/50 border border-border hover:border-gold/30 p-6 transition-all duration-300">
-                <div className="text-2xl mb-4">{point.icon}</div>
-                <h3 className="text-cream font-semibold text-sm mb-2 tracking-wide">{point.title}</h3>
-                <p className="text-text-muted text-sm leading-relaxed font-light">{point.text}</p>
-              </div>
-            </AnimatedSection>
-          ))}
+          {PAIN_POINTS.map((point, i) => {
+            const Icon = ICONS[i]
+            return (
+              <AnimatedSection key={point.id} delay={i * 0.1} direction="up">
+                <div className="group h-full bg-surface-2/50 border border-border hover:border-gold/30 p-6 transition-all duration-300 relative overflow-hidden">
+                  {/* Decorative number */}
+                  <span
+                    className="absolute -top-2 -end-2 font-display font-light text-gold/5 leading-none select-none pointer-events-none"
+                    style={{ fontSize: '100px' }}
+                    aria-hidden="true"
+                  >
+                    {i + 1}
+                  </span>
+
+                  <Icon
+                    size={20}
+                    className="text-gold mb-4 transition-transform duration-300 group-hover:scale-110"
+                    strokeWidth={1.5}
+                  />
+                  <h3 className="text-cream font-semibold text-sm mb-2 tracking-wide">
+                    {point.title}
+                  </h3>
+                  <p className="text-text-muted text-sm leading-relaxed font-light relative z-10">
+                    {point.text}
+                  </p>
+                </div>
+              </AnimatedSection>
+            )
+          })}
         </div>
       </div>
     </section>
