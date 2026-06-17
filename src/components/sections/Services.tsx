@@ -23,12 +23,12 @@ export function Services() {
               <div
                 className={cn(
                   'relative h-full flex flex-col bg-surface rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/5',
-                  'popular' in service && service.popular
+                  service.popular
                     ? 'border-gold/40 shadow-md shadow-gold/10'
                     : 'border-border hover:border-gold/20'
                 )}
               >
-                {'popular' in service && service.popular && (
+                {service.popular && (
                   <span className="absolute -top-3 start-1/2 -translate-x-1/2 bg-gold text-background text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
                     הכי פופולרי
                   </span>
@@ -49,7 +49,7 @@ export function Services() {
                     href="#"
                     className={cn(
                       'text-sm font-bold px-4 py-2 rounded-lg transition-all duration-200',
-                      'popular' in service && service.popular
+                      service.popular
                         ? 'bg-gold text-background hover:bg-gold-light'
                         : 'border border-gold/40 text-gold hover:border-gold hover:bg-gold/5'
                     )}

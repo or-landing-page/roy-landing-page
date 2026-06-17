@@ -58,6 +58,7 @@ export const SERVICES = [
     price: '80',
     duration: '45 דקות',
     icon: '✂️',
+    popular: false,
   },
   {
     id: 'beard',
@@ -66,6 +67,7 @@ export const SERVICES = [
     price: '50',
     duration: '30 דקות',
     icon: '🪒',
+    popular: false,
   },
   {
     id: 'combo',
@@ -83,6 +85,7 @@ export const SERVICES = [
     price: '60',
     duration: '30 דקות',
     icon: '🪒',
+    popular: false,
   },
 ] as const
 
