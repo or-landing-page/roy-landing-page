@@ -1,68 +1,76 @@
+import Image from 'next/image'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { SectionTitle } from '@/components/ui/SectionTitle'
 import { SITE_CONFIG } from '@/lib/constants'
-
-const highlights = [
-  { value: `${SITE_CONFIG.yearsExperience}+`, label: 'שנות ניסיון', icon: '✂️' },
-  { value: `${SITE_CONFIG.clientsCount}+`, label: 'לקוחות מרוצים', icon: '👑' },
-  { value: `${SITE_CONFIG.studentsCount}+`, label: 'סטודנטים בוגרים', icon: '🎓' },
-  { value: '100%', label: 'שביעות רצון', icon: '⭐' },
-]
 
 export function About() {
   return (
-    <section id="about" className="py-20 sm:py-28 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image placeholder */}
+    <section id="about" className="py-24 sm:py-32 bg-background">
+      <div className="max-w-5xl mx-auto px-6">
+        <AnimatedSection>
+          <p className="text-gold text-[10px] tracking-[6px] uppercase font-semibold mb-12 text-center">
+            אודות
+          </p>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          {/* Portrait */}
           <AnimatedSection direction="right">
-            <div className="relative">
-              <div className="aspect-[3/4] bg-surface-2 rounded-2xl overflow-hidden border border-border">
-                <div className="absolute inset-0 flex items-center justify-center text-text-muted text-6xl">
-                  💈
-                </div>
-                {/* TODO: replace with next/image of Roy's portrait */}
-              </div>
+            <div className="relative aspect-[3/4] border border-gold/15 overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=80"
+                alt="רוי — ספר מקצועי ומייסד RoyHouse"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 50%)',
+                }}
+              />
+
               {/* Experience badge */}
-              <div className="absolute -bottom-6 -end-6 bg-gold text-background rounded-xl px-6 py-4 shadow-xl">
-                <p className="text-3xl font-black">{SITE_CONFIG.yearsExperience}+</p>
-                <p className="text-sm font-bold">שנות ניסיון</p>
+              <div className="absolute -bottom-5 -start-5 bg-gold px-5 py-3 text-background z-10">
+                <div className="font-display font-light text-3xl leading-none">
+                  {SITE_CONFIG.yearsExperience}+
+                </div>
+                <div className="text-[9px] tracking-[2px] uppercase font-bold mt-0.5">
+                  שנות ניסיון
+                </div>
               </div>
             </div>
           </AnimatedSection>
 
           {/* Text */}
-          <AnimatedSection direction="left" delay={0.15}>
-            <SectionTitle eyebrow="אודות" title="מי" titleHighlight="אני?" />
+          <AnimatedSection direction="left" delay={0.1}>
+            <blockquote
+              className="font-display font-light italic text-gold-light leading-relaxed mb-6"
+              style={{ fontSize: 'clamp(16px, 2.5vw, 22px)' }}
+            >
+              &ldquo;שיערתי לאלפי לקוחות לפני שהבנתי מה באמת מפריד ספר טוב מספר שמחפשים
+              אחריו.&rdquo;
+            </blockquote>
 
-            <div className="space-y-5 text-text-muted leading-relaxed mb-10">
-              <p>
-                שמי רוי, ספר מקצועי מתל אביב עם {SITE_CONFIG.yearsExperience}+ שנות ניסיון
-                בתעשייה. התחלתי בגיל צעיר עם תשוקה אמיתית לאמנות הספרות — ומאז לא הפסקתי
-                ללמוד, להתפתח, ולהעביר הלאה.
-              </p>
-              <p>
-                אני מאמין שספרות טובה היא הרבה יותר מתספורת — היא חוויה, קשר, ומצוינות. כל
-                לקוח שנכנס אצלי יוצא עם תספורת שמתאימה בדיוק לו — לפנים שלו, לסגנון שלו,
-                לאישיות שלו.
-              </p>
-              <p>
-                בשנים האחרונות הרחבתי את הפעילות לקורסים מקצועיים — ועד היום{' '}
-                {SITE_CONFIG.studentsCount}+ ספרים בוגרים ממשיכים הלאה עם כלים אמיתיים ועסק
-                שעובד.
-              </p>
-            </div>
+            <div className="w-12 h-px bg-gold/50 mb-6" />
 
-            {/* Highlights grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {highlights.map((h) => (
-                <div
-                  key={h.label}
-                  className="bg-background rounded-xl p-4 border border-border text-center"
-                >
-                  <p className="text-2xl mb-1">{h.icon}</p>
-                  <p className="text-xl font-black text-gold">{h.value}</p>
-                  <p className="text-text-muted text-xs mt-0.5">{h.label}</p>
+            <p className="text-text-muted text-sm leading-relaxed font-light mb-8">
+              רוי הוא ספר שיער עם {SITE_CONFIG.yearsExperience}+ שנות ניסיון, מייסד RoyHouse
+              ומחנך את הדור הבא של ספרי השיער בישראל. השיטה שלו מבוססת על עקרונות פשוטים: דיוק,
+              עקביות, ולקוחות שחוזרים.
+            </p>
+
+            {/* Unique proof points instead of repeated stats */}
+            <div className="flex flex-col gap-4">
+              {[
+                'הכשיר 200+ ספרים — רבים מהם פתחו עסק עצמאי',
+                'ממוצע עלייה בהכנסה לבוגרים: 180% תוך 6 חודשים',
+                'הסלון הנבחר של 3,000+ לקוחות פרטיים בתל אביב',
+              ].map((text) => (
+                <div key={text} className="flex items-start gap-3">
+                  <span className="text-gold text-xs mt-0.5 flex-shrink-0">✦</span>
+                  <p className="text-text-muted text-sm leading-relaxed">{text}</p>
                 </div>
               ))}
             </div>

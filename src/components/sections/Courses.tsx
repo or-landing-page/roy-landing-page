@@ -1,119 +1,135 @@
+import { Check } from 'lucide-react'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
-import { SectionTitle } from '@/components/ui/SectionTitle'
 import { COURSES, SITE_CONFIG } from '@/lib/constants'
-import { cn } from '@/lib/utils'
 
 export function Courses() {
   return (
-    <section id="courses" className="py-20 sm:py-28 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section
+      id="course"
+      className="py-24 sm:py-32 relative overflow-hidden"
+      style={{
+        background:
+          'linear-gradient(180deg, rgba(184,150,62,0.03) 0%, transparent 40%), #0f0f0f',
+      }}
+    >
+      <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>
-          <SectionTitle
-            eyebrow="קורסים מקצועיים"
-            title="רוצה ללמוד"
-            titleHighlight="מהטוב ביותר?"
-            subtitle={`${SITE_CONFIG.studentsCount}+ ספרים כבר עשו את זה. עכשיו תורך.`}
-            centered
-          />
+          <p className="text-gold text-[10px] tracking-[6px] uppercase font-semibold mb-6 text-center">
+            הפתרון
+          </p>
+          <h2
+            className="font-display font-light text-cream text-center leading-[1.15] mb-4"
+            style={{ fontSize: 'clamp(28px, 5vw, 52px)' }}
+          >
+            הקורסים של{' '}
+            <em className="text-gold-light not-italic font-light italic">RoyHouse</em>
+          </h2>
+          <p className="text-text-muted text-sm text-center max-w-lg mx-auto mb-10 leading-relaxed font-light">
+            שיטת העבודה המלאה — מהחתך הראשון ועד ללקוח שחוזר ומביא חברים.
+          </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-4 max-w-4xl mx-auto">
+        {/* Scarcity bar */}
+        <AnimatedSection delay={0.05}>
+          <div className="mb-10 border border-gold/20 bg-gold/5 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-2 h-2 bg-gold rounded-full animate-pulse flex-shrink-0" />
+              <span className="text-cream text-xs font-semibold tracking-wide">
+                קורס יולי 2025 — 7 מתוך 10 מקומות אויכסו
+              </span>
+            </div>
+            <div className="w-full sm:w-48 h-1.5 bg-border flex-shrink-0">
+              <div className="h-full bg-gold transition-all duration-1000" style={{ width: '70%' }} />
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Two courses */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {COURSES.map((course, i) => (
-            <AnimatedSection key={course.id} delay={i * 0.15}>
+            <AnimatedSection key={course.id} delay={0.1 + i * 0.1}>
               <div
-                className={cn(
-                  'relative h-full flex flex-col rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1',
+                className={`h-full border p-8 flex flex-col relative ${
                   course.popular
-                    ? 'bg-surface border-gold/50 shadow-xl shadow-gold/10'
-                    : 'bg-surface border-border hover:border-gold/20 hover:shadow-lg hover:shadow-gold/5'
-                )}
+                    ? 'border-gold/50 bg-surface-2'
+                    : 'border-border bg-surface-2/40'
+                }`}
               >
-                {course.popular && (
-                  <div className="absolute -top-4 start-1/2 -translate-x-1/2">
-                    <span className="bg-gold text-background text-xs font-black px-5 py-1.5 rounded-full whitespace-nowrap shadow-lg">
-                      ⭐ {course.tag}
+                {course.popular && course.tag && (
+                  <div className="absolute -top-px start-6">
+                    <span className="bg-gold text-background text-[9px] font-bold tracking-[2px] uppercase px-3 py-1">
+                      {course.tag}
                     </span>
                   </div>
                 )}
 
-                <div className="mb-6">
-                  <p className="text-gold text-xs font-semibold tracking-widest uppercase mb-2">
-                    {course.subtitle}
-                  </p>
-                  <h3 className="text-text-primary font-black text-2xl mb-3">{course.title}</h3>
-                  <p className="text-text-muted text-sm leading-relaxed">{course.description}</p>
+                <div className={`mb-5 ${course.popular ? 'mt-4' : ''}`}>
+                  <h3 className="font-display font-light text-cream text-xl mb-1">
+                    {course.title}
+                  </h3>
+                  <p className="text-gold text-[10px] tracking-[3px] uppercase">{course.subtitle}</p>
                 </div>
 
-                {/* Meta */}
-                <div className="flex gap-4 mb-6 text-sm">
-                  <span className="flex items-center gap-1.5 text-text-muted">
-                    <span className="text-gold">📅</span>
-                    {course.duration}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-text-muted">
-                    <span className="text-gold">📚</span>
-                    {course.modules} מודולים
-                  </span>
-                </div>
+                <p className="text-text-muted text-sm leading-relaxed mb-6 font-light">
+                  {course.description}
+                </p>
 
                 {/* Features */}
-                <ul className="space-y-2.5 mb-8 flex-1">
-                  {course.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2.5 text-sm text-text-muted">
-                      <span className="w-4 h-4 rounded-full bg-gold/15 text-gold flex items-center justify-center text-xs flex-shrink-0">
-                        ✓
-                      </span>
-                      {f}
+                <ul className="flex flex-col gap-3 mb-8 flex-1">
+                  {course.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <Check
+                        size={13}
+                        className="text-gold flex-shrink-0 mt-0.5"
+                        strokeWidth={2.5}
+                      />
+                      <span className="text-text-muted text-xs leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Pricing */}
-                <div className="border-t border-border pt-6">
-                  <div className="flex items-end justify-between mb-4">
-                    <div>
-                      <p className="text-text-muted text-sm line-through">₪{course.originalPrice}</p>
-                      <p className="text-3xl font-black text-text-primary">
-                        ₪<span className="text-gold">{course.price}</span>
-                      </p>
-                    </div>
-                    <p className="text-gold text-sm font-semibold">
-                      חסכון של{' '}
-                      ₪{(
-                        parseInt(course.originalPrice.replace(',', '')) -
-                        parseInt(course.price.replace(',', ''))
-                      ).toLocaleString('he-IL')}
-                    </p>
+                {/* Meta tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  <span className="text-[10px] text-text-muted border border-border px-2 py-1 tracking-[1px]">
+                    {course.duration}
+                  </span>
+                  <span className="text-[10px] text-text-muted border border-border px-2 py-1 tracking-[1px]">
+                    {course.modules} מודולים
+                  </span>
+                </div>
+
+                {/* Price + CTA */}
+                <div className="border-t border-border/60 pt-6">
+                  <div className="flex items-baseline gap-3 mb-4">
+                    <span
+                      className="font-display font-light text-gold"
+                      style={{ fontSize: 'clamp(28px, 4vw, 40px)' }}
+                    >
+                      ₪{course.price}
+                    </span>
+                    {course.originalPrice && (
+                      <span className="text-text-muted text-sm line-through">
+                        ₪{course.originalPrice}
+                      </span>
+                    )}
                   </div>
                   <a
                     href={SITE_CONFIG.whatsappCoursesLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn(
-                      'block w-full text-center font-black py-3.5 rounded-xl text-base transition-all duration-200',
+                    className={`block w-full text-center font-bold px-6 py-3.5 text-[10px] tracking-[3px] uppercase transition-all duration-200 hover:scale-[1.02] ${
                       course.popular
-                        ? 'bg-gold hover:bg-gold-light text-background hover:scale-105 shadow-lg shadow-gold/20'
-                        : 'border border-gold/40 text-gold hover:border-gold hover:bg-gold/5'
-                    )}
+                        ? 'bg-gold hover:bg-gold-light text-background'
+                        : 'border border-gold/40 hover:border-gold text-cream hover:bg-gold/5'
+                    }`}
                   >
-                    אני רוצה להתחיל →
+                    הצטרף לקורס ←
                   </a>
                 </div>
               </div>
             </AnimatedSection>
           ))}
         </div>
-
-        <AnimatedSection delay={0.3}>
-          <div className="mt-12 text-center">
-            <p className="text-text-muted text-sm">
-              יש שאלות לפני שמחליטים?{' '}
-              <a href={SITE_CONFIG.whatsappCoursesLink} className="text-gold hover:underline font-semibold">
-                דברו איתי ישירות →
-              </a>
-            </p>
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   )
