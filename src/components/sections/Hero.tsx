@@ -14,14 +14,14 @@ export function Hero() {
           alt=""
           fill
           priority
-          className="object-cover opacity-25"
+          className="object-cover opacity-20"
           sizes="100vw"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.35) 40%, rgba(8,8,8,0.85) 80%, #080808 100%)',
+              'linear-gradient(180deg, rgba(8,8,8,0.6) 0%, rgba(8,8,8,0.4) 40%, rgba(8,8,8,0.9) 80%, #080808 100%)',
           }}
         />
       </div>
@@ -48,95 +48,81 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 px-6 max-w-4xl mx-auto pb-24">
-        {/* Eyebrow */}
-        <motion.p
+      <div className="relative z-10 px-6 max-w-4xl mx-auto pb-28">
+        {/* Logo */}
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-gold text-[10px] tracking-[8px] uppercase font-semibold mb-8"
+          className="flex justify-center mb-10"
         >
-          ספרות יוקרה · קורס מקצועי
-        </motion.p>
-
-        {/* Logo / Main headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display font-light text-cream leading-[1.05] mb-6"
-          style={{ fontSize: 'clamp(52px, 10vw, 110px)', letterSpacing: '12px' }}
-        >
-          RoyHouse
-        </motion.h1>
+          <Image
+            src="/logo.png"
+            alt="ROYCE HOUSE Academy"
+            width={280}
+            height={140}
+            className="h-auto w-auto max-w-xs"
+            priority
+          />
+        </motion.div>
 
         {/* Divider */}
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex items-center gap-4 justify-center mb-8 w-64 mx-auto"
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="flex items-center gap-4 justify-center mb-10 w-48 mx-auto"
         >
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
-          <div className="w-2 h-2 bg-gold rotate-45 flex-shrink-0" />
+          <div className="w-1.5 h-1.5 bg-gold rotate-45 flex-shrink-0" />
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
         </motion.div>
 
-        {/* Sub headline */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
+        {/* Main headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="font-display font-light italic text-gold-light mb-10"
-          style={{ fontSize: 'clamp(16px, 2.5vw, 24px)', letterSpacing: '4px' }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="font-display font-light text-cream leading-[1.05] mb-8"
+          style={{ fontSize: 'clamp(36px, 8vw, 88px)', letterSpacing: '8px' }}
         >
-          האמנות שמגדירה אותך.
-        </motion.p>
+          FROM THE HEAD
+          <br />
+          <em className="text-gold-light not-italic font-light italic">TO THE HAND</em>
+        </motion.h1>
 
+        {/* Body copy */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-text-muted text-sm font-light max-w-md mx-auto mb-12 leading-relaxed"
+          className="text-text-muted text-sm font-light max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          הקורס שיהפוך אותך מספר טוב — לספר שכולם מדברים עליו
+          השיטה שמלמדת אותך לראות את התוצאה לפני המגע הראשון במספריים, להבין את מבנה הראש,
+          וליצור תספורות מדויקות מתוך הבנה ולא מתוך חיקוי.
         </motion.p>
 
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10"
+          transition={{ duration: 0.7, delay: 0.65 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a
-            href="#course"
+            href={SITE_CONFIG.whatsappCoursesLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-gold hover:bg-gold-light text-background font-bold px-10 py-4 text-[10px] tracking-[3px] uppercase transition-all duration-200 hover:scale-105"
           >
-            לקורס המלא ←
+            הרשמה למחזור הקרוב ←
           </a>
           <a
-            href="#about"
+            href="#method"
             className="border border-gold/40 hover:border-gold text-cream font-semibold px-10 py-4 text-[10px] tracking-[3px] uppercase transition-all duration-200 hover:bg-gold/5"
           >
-            גלה עוד ↓
+            למה ללמוד ב-ROYCE? ↓
           </a>
-        </motion.div>
-
-        {/* Trust signals — above fold */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.75 }}
-          className="flex flex-wrap justify-center gap-5 text-[10px] text-text-muted tracking-[2px] uppercase"
-        >
-          <span>★ 200+ בוגרים</span>
-          <span className="text-gold/30">·</span>
-          <span>{SITE_CONFIG.yearsExperience} שנות ניסיון</span>
-          <span className="text-gold/30">·</span>
-          <span>תעודה מוכרת</span>
-          <span className="text-gold/30">·</span>
-          <span>ליווי 3 חודשים</span>
         </motion.div>
       </div>
 
@@ -162,13 +148,11 @@ export function Hero() {
           {[
             { value: `${SITE_CONFIG.yearsExperience}+`, label: 'שנות ניסיון' },
             { value: `${SITE_CONFIG.studentsCount}+`, label: 'בוגרי קורסים' },
-            { value: `${SITE_CONFIG.clientsCount.toLocaleString()}+`, label: 'לקוחות' },
+            { value: '8', label: 'מפגשים' },
+            { value: '40', label: 'שעות אקדמיות' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div
-                className="font-display font-light text-gold text-xl"
-                style={{ letterSpacing: '2px' }}
-              >
+              <div className="font-display font-light text-gold text-xl" style={{ letterSpacing: '2px' }}>
                 {stat.value}
               </div>
               <div className="text-text-muted text-[10px] tracking-[2px] uppercase mt-0.5">

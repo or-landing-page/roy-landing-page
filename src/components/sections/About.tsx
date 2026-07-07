@@ -49,24 +49,25 @@ export function About() {
               className="font-display font-light italic text-gold-light leading-relaxed mb-6"
               style={{ fontSize: 'clamp(16px, 2.5vw, 22px)' }}
             >
-              &ldquo;שיערתי לאלפי לקוחות לפני שהבנתי מה באמת מפריד ספר טוב מספר שמחפשים
-              אחריו.&rdquo;
+              &ldquo;הבנתי שחסרה שיטת לימוד אמיתית — אחת שמבוססת על הבנת מבנה הראש, לא רק על
+              חיקוי.&rdquo;
             </blockquote>
 
             <div className="w-12 h-px bg-gold/50 mb-6" />
 
             <p className="text-text-muted text-sm leading-relaxed font-light mb-8">
-              רוי הוא ספר שיער עם {SITE_CONFIG.yearsExperience}+ שנות ניסיון, מייסד RoyHouse
-              ומחנך את הדור הבא של ספרי השיער בישראל. השיטה שלו מבוססת על עקרונות פשוטים: דיוק,
-              עקביות, ולקוחות שחוזרים.
+              {/* Roy's story — content coming from client */}
+              מייסד ROYCE HOUSE ACADEMY, עם {SITE_CONFIG.yearsExperience}+ שנות ניסיון בעולם
+              הברברינג והעיצוב. הדרך שעבר — מספר שעבד לפי הרגל עד שפיתח שיטה שמבוססת על הבנת
+              מבנה הראש — היא הבסיס לכל מה שמלמד כאן.
             </p>
 
-            {/* Unique proof points instead of repeated stats */}
+            {/* Proof points — to be updated with real data */}
             <div className="flex flex-col gap-4">
               {[
-                'הכשיר 200+ ספרים — רבים מהם פתחו עסק עצמאי',
-                'ממוצע עלייה בהכנסה לבוגרים: 180% תוך 6 חודשים',
-                'הסלון הנבחר של 3,000+ לקוחות פרטיים בתל אביב',
+                `${SITE_CONFIG.studentsCount}+ בוגרים מוכשרים`,
+                'שיטת HEAD TO HAND — פותחה אחרי שנים בשטח',
+                'ליווי אישי לכל תלמיד לאורך כל הדרך',
               ].map((text) => (
                 <div key={text} className="flex items-start gap-3">
                   <span className="text-gold text-xs mt-0.5 flex-shrink-0">✦</span>

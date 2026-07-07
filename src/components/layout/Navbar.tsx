@@ -46,11 +46,13 @@ export function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#"
-          className="font-display font-light text-cream tracking-[6px] uppercase text-lg hover:text-gold transition-colors duration-200"
-        >
-          {SITE_CONFIG.name}
+        <a href="#" className="flex flex-col items-start hover:opacity-80 transition-opacity duration-200">
+          <span className="font-display font-light text-cream tracking-[5px] uppercase text-sm leading-tight">
+            {SITE_CONFIG.name}
+          </span>
+          <span className="text-gold text-[8px] tracking-[3px] uppercase font-semibold leading-tight">
+            ACADEMY
+          </span>
         </a>
 
         {/* Desktop Nav */}

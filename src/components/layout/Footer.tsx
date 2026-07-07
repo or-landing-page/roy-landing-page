@@ -69,7 +69,7 @@ export function Footer() {
             </h3>
             <div className="flex flex-col gap-3 text-xs text-text-muted">
               <p>{SITE_CONFIG.address}</p>
-              <p>{SITE_CONFIG.hours}</p>
+
               <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-gold transition-colors">
                 {SITE_CONFIG.email}
               </a>
