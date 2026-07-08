@@ -90,7 +90,7 @@ export function Navbar() {
           href={SITE_CONFIG.whatsappCoursesLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex bg-gold hover:bg-gold-light text-background font-bold px-6 py-2.5 text-[10px] tracking-[2px] uppercase transition-all duration-200 hover:scale-105"
+          className="hidden md:inline-flex bg-gold hover:bg-gold-light text-background font-bold px-6 py-2.5 text-[10px] tracking-[2px] uppercase rounded-full shadow-lg shadow-gold/20 transition-all duration-200 hover:scale-105"
         >
           הצטרף לקורס ←
         </a>
@@ -141,7 +141,7 @@ export function Navbar() {
                   href={SITE_CONFIG.whatsappCoursesLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center bg-gold text-background font-bold px-6 py-3 text-[10px] tracking-[2px] uppercase"
+                  className="block w-full text-center bg-gold text-background font-bold px-6 py-3 text-[10px] tracking-[2px] uppercase rounded-full shadow-lg shadow-gold/20"
                 >
                   הצטרף לקורס ←
                 </a>

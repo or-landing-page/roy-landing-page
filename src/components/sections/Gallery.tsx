@@ -1,7 +1,7 @@
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 
-const GALLERY_ITEMS = Array.from({ length: 9 }, (_, i) => ({
+const BEFORE_AFTER_PAIRS = Array.from({ length: 6 }, (_, i) => ({
   id: i + 1,
   label: `עבודה ${i + 1}`,
 }))
@@ -20,19 +20,29 @@ export function Gallery() {
           />
         </AnimatedSection>
 
-        {/* Masonry grid */}
-        <div className="columns-2 md:columns-3 gap-4 mt-4">
-          {GALLERY_ITEMS.map((item, i) => (
-            <AnimatedSection key={item.id} delay={i * 0.05} className="mb-4 break-inside-avoid">
-              <div
-                className={`bg-surface-2 rounded-xl overflow-hidden border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg hover:shadow-gold/5 ${
-                  i % 3 === 0 ? 'aspect-[3/4]' : i % 3 === 1 ? 'aspect-square' : 'aspect-[4/3]'
-                }`}
-              >
-                {/* TODO: replace with next/image of actual work */}
-                <div className="w-full h-full flex items-center justify-center text-text-muted/30 text-4xl">
-                  ✂️
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+          {BEFORE_AFTER_PAIRS.map((pair, i) => (
+            <AnimatedSection key={pair.id} delay={i * 0.05}>
+              <div className="bg-surface-2 rounded-xl overflow-hidden border border-border hover:border-gold/30 transition-all duration-300 hover:shadow-lg hover:shadow-gold/5">
+                <div className="grid grid-cols-2 gap-px bg-border">
+                  {/* TODO: replace with next/image of actual before photo */}
+                  <div className="relative aspect-square flex items-center justify-center bg-surface-2 text-text-muted/30 text-3xl">
+                    <span className="absolute top-2 right-2 text-[9px] tracking-[2px] uppercase font-bold text-gold bg-background/80 px-2 py-1 rounded">
+                      לפני
+                    </span>
+                    ✂️
+                  </div>
+                  {/* TODO: replace with next/image of actual after photo */}
+                  <div className="relative aspect-square flex items-center justify-center bg-surface-2 text-text-muted/30 text-3xl">
+                    <span className="absolute top-2 right-2 text-[9px] tracking-[2px] uppercase font-bold text-gold bg-background/80 px-2 py-1 rounded">
+                      אחרי
+                    </span>
+                    ✂️
+                  </div>
                 </div>
+                <p className="text-text-muted text-xs tracking-[1px] text-center py-3">
+                  {pair.label}
+                </p>
               </div>
             </AnimatedSection>
           ))}

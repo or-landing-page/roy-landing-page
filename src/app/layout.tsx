@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Heebo, Cormorant_Garamond } from 'next/font/google'
+import { LoadingScreen } from '@/components/ui/LoadingScreen'
 import './globals.css'
 
 const heebo = Heebo({
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }`,
           }}
         />
+        <LoadingScreen />
         {children}
       </body>
     </html>

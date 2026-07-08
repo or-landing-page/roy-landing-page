@@ -1,76 +1,49 @@
-'use client'
-
 import Image from 'next/image'
-import { Button } from '@/components/ui/Button'
-import { SITE_CONFIG, NEXT_COHORT } from '@/lib/constants'
 import Link from 'next/link'
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-surface to-background pt-20 pb-16">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-surface to-background opacity-50" />
+    <section className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden">
+      {/* Background video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/hero-mock.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+
+      {/* Dark overlay for legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/60 to-black/75" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-        {/* Logo */}
-        <div className="mb-8 flex justify-center">
-          <Image
-            src="/logo.png"
-            alt="ROYCE HOUSE"
-            width={64}
-            height={64}
-            className="h-16 w-16"
-          />
+      <div className="relative z-10 flex flex-col items-center px-6 text-center">
+        {/* Logo mark */}
+        <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-gold/60 md:h-16 md:w-16">
+          <Image src="/logo.png" alt="ROYCE HOUSE" width={32} height={32} className="h-8 w-8" />
         </div>
 
-        {/* Preheader */}
-        <div className="mb-6 inline-block">
-          <p className="text-text-muted text-sm md:text-base font-medium tracking-widest">
-            קורס מקצועי בברברינג
-          </p>
-        </div>
-
-        {/* Main heading */}
-        <h1 className="font-display text-5xl md:text-7xl font-light mb-6 text-text-primary leading-tight">
-          משראש ליד
-          <span className="block text-gold font-light">השיטה של רוי</span>
+        {/* Wordmark */}
+        <h1 className="font-display text-2xl md:text-3xl font-light tracking-[0.3em] text-text-primary">
+          ROYCE HOUSE
         </h1>
 
-        {/* Subheading */}
-        <p className="text-text-muted text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-          למדו את הגיאומטריה, האנטומיה, וסגנון אישי. הפכו לברברים שמתמחרים נכון ובונים לקוחות שחוזרים.
+        {/* Divider */}
+        <div className="my-4 h-px w-12 bg-gold" />
+
+        {/* Subtitle */}
+        <p className="text-text-muted text-sm md:text-base max-w-md leading-relaxed">
+          קורס מקצועי בברברינג — השיטה של רוי
         </p>
 
-        {/* CTA Section */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Link href="#curriculum">
-            <Button size="lg" variant="primary">
-              הרשמה עכשיו — {NEXT_COHORT.spotsTotal - NEXT_COHORT.spotsTaken} מקומות בלבד ⚡
-            </Button>
-          </Link>
-          <Link href="#method">
-            <Button size="lg" variant="outline">
-              למד עוד על השיטה
-            </Button>
-          </Link>
-        </div>
-
-        {/* Trust signal */}
-        <div className="flex flex-col sm:flex-row justify-center gap-8 text-text-muted text-sm">
-          <div className="flex items-center gap-2">
-            <span className="text-gold font-bold">✓</span>
-            <span>{SITE_CONFIG.studentsCount}+ ברברים הכפילו את המחיר</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-gold font-bold">✓</span>
-            <span>8 שבועות קורס אינטנסיבי</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-gold font-bold">✓</span>
-            <span>200+ שעות עבודה בשדה</span>
-          </div>
-        </div>
+        {/* CTA link */}
+        <Link
+          href="#curriculum"
+          className="mt-8 text-gold text-sm tracking-wide hover:text-gold-light transition-colors"
+        >
+          לפרטי הקורס ←
+        </Link>
       </div>
 
       {/* Scroll indicator */}
