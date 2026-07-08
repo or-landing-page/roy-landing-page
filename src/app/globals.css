@@ -63,3 +63,24 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold-dark);
 }
+
+/* Micro-interactions */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    @apply transition-colors duration-200 ease-out;
+  }
+
+  button,
+  a {
+    @apply transition-all duration-200 ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
