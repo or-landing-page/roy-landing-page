@@ -4,10 +4,10 @@ import { NEXT_COHORT, SITE_CONFIG } from '@/lib/constants'
 export function CTABanner() {
   return (
     <section
-      className="py-24 sm:py-32 bg-background relative overflow-hidden text-center"
+      className="py-24 sm:py-32 bg-surface relative overflow-hidden text-center"
       style={{
         background:
-          'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184,150,62,0.1) 0%, transparent 60%), #080808',
+          'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184,150,62,0.1) 0%, transparent 60%), var(--color-surface)',
         borderTop: '1px solid rgba(184,150,62,0.15)',
       }}
     >
@@ -18,7 +18,7 @@ export function CTABanner() {
           </p>
 
           <h2
-            className="font-display font-light text-cream leading-[1.15] mb-6"
+            className="font-display font-light text-text-primary leading-[1.15] mb-6"
             style={{ fontSize: 'clamp(32px, 6vw, 64px)' }}
           >
             {NEXT_COHORT.label}
@@ -43,10 +43,10 @@ export function CTABanner() {
           </a>
 
           {/* Risk reversal */}
-          <div className="border border-border/50 px-6 py-4 max-w-sm mx-auto mt-8">
+          <div className="border-2 border-border px-6 py-4 max-w-sm mx-auto mt-8">
             <p className="text-text-muted text-[10px] tracking-[1px] leading-relaxed">
               לא מרוצה מהמפגש הראשון?{' '}
-              <span className="text-cream font-semibold">החזר כספי מלא — ללא שאלות.</span>
+              <span className="text-text-primary font-semibold">החזר כספי מלא — ללא שאלות.</span>
             </p>
           </div>
 

@@ -3,7 +3,7 @@ import { PAIN_POINTS_PRO, PAIN_POINTS_BIZ } from '@/lib/constants'
 
 function PainCard({ title, text, index }: { title: string; text: string; index: number }) {
   return (
-    <div className="group h-full bg-surface-2/50 border border-border hover:border-gold/30 p-6 transition-all duration-300 relative overflow-hidden">
+    <div className="group h-full bg-surface-2/50 border-2 border-border hover:border-gold hover:shadow-lg hover:scale-105 p-6 transition-all duration-300 relative overflow-hidden">
       <span
         className="absolute -top-2 -end-2 font-display font-light text-gold/5 leading-none select-none pointer-events-none"
         style={{ fontSize: '80px' }}
@@ -12,7 +12,7 @@ function PainCard({ title, text, index }: { title: string; text: string; index: 
         {index + 1}
       </span>
       <div className="w-5 h-px bg-gold mb-4" />
-      <h3 className="text-cream font-semibold text-sm mb-2 tracking-wide">{title}</h3>
+      <h3 className="text-text-primary font-semibold text-sm mb-2 tracking-wide">{title}</h3>
       <p className="text-text-muted text-sm leading-relaxed font-light relative z-10">{text}</p>
     </div>
   )
@@ -27,7 +27,7 @@ export function PainPoints() {
             הבעיה
           </p>
           <h2
-            className="font-display font-light text-cream text-center leading-[1.15] mb-4"
+            className="font-display font-light text-text-primary text-center leading-[1.15] mb-4"
             style={{ fontSize: 'clamp(28px, 5vw, 52px)' }}
           >
             הבעיה בעולם הספרות היום
@@ -43,7 +43,7 @@ export function PainPoints() {
 
         {/* Professional */}
         <AnimatedSection delay={0.05}>
-          <p className="text-[10px] tracking-[4px] uppercase text-text-muted mb-4 border-b border-border/50 pb-3">
+          <p className="text-[10px] tracking-[4px] uppercase text-text-muted mb-4 border-b border-border pb-3">
             מקצועי
           </p>
         </AnimatedSection>
@@ -57,7 +57,7 @@ export function PainPoints() {
 
         {/* Business */}
         <AnimatedSection delay={0.05}>
-          <p className="text-[10px] tracking-[4px] uppercase text-text-muted mb-4 border-b border-border/50 pb-3">
+          <p className="text-[10px] tracking-[4px] uppercase text-text-muted mb-4 border-b border-border pb-3">
             עסקי
           </p>
         </AnimatedSection>

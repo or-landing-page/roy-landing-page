@@ -5,11 +5,7 @@ export function Method() {
   return (
     <section
       id="method"
-      className="py-24 sm:py-32 relative overflow-hidden"
-      style={{
-        background:
-          'linear-gradient(180deg, #080808 0%, rgba(184,150,62,0.04) 50%, #080808 100%)',
-      }}
+      className="py-24 sm:py-32 relative overflow-hidden bg-surface"
     >
       <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>
@@ -17,7 +13,7 @@ export function Method() {
             המתודולוגיה
           </p>
           <h2
-            className="font-display font-light text-cream text-center leading-[1.1] mb-4"
+            className="font-display font-light text-text-primary text-center leading-[1.1] mb-4"
             style={{ fontSize: 'clamp(28px, 5vw, 52px)', letterSpacing: '4px' }}
           >
             THE HEAD TO HAND
@@ -34,11 +30,11 @@ export function Method() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
           {METHOD_PARAMS.map((param, i) => (
             <AnimatedSection key={param.num} delay={0.08 * i} direction="up">
-              <div className="group relative border border-border/60 hover:border-gold/40 p-6 md:p-8 transition-all duration-300 h-full flex flex-col">
+              <div className="group relative border-2 border-border hover:border-gold hover:shadow-lg hover:scale-105 p-6 md:p-8 transition-all duration-300 h-full flex flex-col">
                 {/* connector line between cards (desktop) */}
                 {i < METHOD_PARAMS.length - 1 && (
                   <div
-                    className="hidden md:block absolute top-1/2 -end-px w-px h-1/2 -translate-y-1/2 bg-border/40"
+                    className="hidden md:block absolute top-1/2 -end-px w-px h-1/2 -translate-y-1/2 bg-border"
                     aria-hidden="true"
                   />
                 )}
@@ -49,7 +45,7 @@ export function Method() {
                 >
                   {param.num}
                 </span>
-                <h3 className="text-cream font-semibold text-sm mb-3 leading-snug">
+                <h3 className="text-text-primary font-semibold text-sm mb-3 leading-snug">
                   {param.title}
                 </h3>
                 <p className="text-text-muted text-xs leading-relaxed font-light">{param.text}</p>
