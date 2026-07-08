@@ -29,10 +29,10 @@ export function Testimonials() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {TESTIMONIALS.map((t, i) => (
             <AnimatedSection key={t.id} delay={i * 0.1} direction="up">
-              <div className="h-full bg-surface-2/50 border-2 border-border hover:border-gold hover:shadow-lg hover:scale-105 p-7 flex flex-col transition-all duration-300">
+              <div className="h-full bg-surface-2/50 border-2 border-border rounded-lg hover:border-gold hover:shadow-lg hover:scale-105 p-7 flex flex-col transition-all duration-300">
                 {/* Stars */}
                 <div className="flex gap-1 mb-5" aria-label={`דירוג: ${t.rating} מתוך 5`}>
                   {Array.from({ length: 5 }).map((_, s) => (

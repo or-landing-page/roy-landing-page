@@ -7,12 +7,12 @@ export const NEXT_COHORT = {
 export const SITE_CONFIG = {
   name: 'ROYCE HOUSE',
   phone: '+972-XX-XXXXXXX',
-  whatsappNumber: '972XXXXXXXXX',
+  whatsappNumber: '3ADKSPJL45EIK1',
   get whatsappLink() {
-    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent('היי, אני רוצה לשמוע על הקורס 📚')}`
+    return `https://wa.me/message/${this.whatsappNumber}`
   },
   get whatsappCoursesLink() {
-    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent('היי, אני רוצה לשמוע על הקורס 📚')}`
+    return `https://wa.me/message/${this.whatsappNumber}`
   },
   instagram: 'https://instagram.com/royhouse_il',
   address: 'תל אביב, ישראל',
@@ -141,6 +141,27 @@ export const TESTIMONIALS = [
     name: 'רועי ש.',
     location: 'ירושלים',
     text: 'השקעתי בקורס ותוך חודש החזרתי פי 3 את הסכום. אין ויכוח — זו ההשקעה הטובה ביותר שעשיתי.',
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'עידן ב.',
+    location: 'באר שבע',
+    text: 'הגעתי בלי שום ניסיון וקצת חשש. תוך שמונה מפגשים כבר עבדתי על לקוחות אמיתיים בביטחון מלא.',
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: 'תומר ל.',
+    location: 'נתניה',
+    text: 'הליווי האישי אחרי הקורס עשה את כל ההבדל. כל שאלה קיבלה מענה מהיר ומדויק.',
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: 'אור ד.',
+    location: 'ראשון לציון',
+    text: 'הבנתי סוף סוף למה תספורות שלי לא נראו מספיק חדות. השיטה כאן שינתה לי את כל הגישה למקצוע.',
     rating: 5,
   },
 ] as const
