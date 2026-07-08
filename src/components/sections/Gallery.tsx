@@ -8,7 +8,7 @@ const GALLERY_ITEMS = Array.from({ length: 9 }, (_, i) => ({
 
 export function Gallery() {
   return (
-    <section id="gallery" className="py-20 sm:py-28 bg-surface">
+    <section id="gallery" className="py-20 sm:py-28 bg-surface scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <AnimatedSection>
           <SectionTitle

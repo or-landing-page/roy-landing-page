@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants'
 
 export function About() {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-background">
+    <section id="about" className="py-24 sm:py-32 bg-background scroll-mt-20">
       <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>
           <p className="text-gold text-[10px] tracking-[6px] uppercase font-semibold mb-12 text-center">
@@ -17,11 +17,12 @@ export function About() {
           <AnimatedSection direction="right">
             <div className="relative aspect-[3/4] border border-gold/15 overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=80"
+                src="/roi-photo.jpg"
                 alt="רוי — ספר מקצועי ומייסד RoyHouse"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
               <div
                 className="absolute inset-0"

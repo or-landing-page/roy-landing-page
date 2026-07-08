@@ -5,7 +5,7 @@ export function Method() {
   return (
     <section
       id="method"
-      className="py-24 sm:py-32 relative overflow-hidden bg-surface"
+      className="py-24 sm:py-32 relative overflow-hidden bg-surface scroll-mt-20"
     >
       <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>

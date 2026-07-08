@@ -11,7 +11,7 @@ function getInitials(name: string) {
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 sm:py-32 bg-surface">
+    <section id="testimonials" className="py-24 sm:py-32 bg-surface scroll-mt-20">
       <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>
           <p className="text-gold text-[10px] tracking-[6px] uppercase font-semibold mb-6 text-center">

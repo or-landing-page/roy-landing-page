@@ -5,7 +5,7 @@ export function WhoIsItFor() {
   return (
     <section
       id="who"
-      className="py-24 sm:py-32 relative overflow-hidden"
+      className="py-24 sm:py-32 relative overflow-hidden scroll-mt-20"
       style={{ background: 'linear-gradient(180deg, rgba(184,150,62,0.03) 0%, transparent 40%), #0f0f0f' }}
     >
       <div className="max-w-4xl mx-auto px-6">

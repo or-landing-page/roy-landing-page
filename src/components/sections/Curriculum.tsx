@@ -5,7 +5,7 @@ export function Curriculum() {
   return (
     <section
       id="curriculum"
-      className="py-24 sm:py-32 bg-background"
+      className="py-24 sm:py-32 bg-background scroll-mt-20"
     >
       <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>

@@ -9,7 +9,7 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-background">
+    <section id="faq" className="py-20 sm:py-28 bg-background scroll-mt-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <AnimatedSection>
           <p className="text-gold text-[10px] tracking-[6px] uppercase font-semibold mb-6 text-center">
