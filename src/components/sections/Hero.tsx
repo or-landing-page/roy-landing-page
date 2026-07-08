@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Button } from '@/components/ui/Button'
 import { SITE_CONFIG, NEXT_COHORT } from '@/lib/constants'
 import Link from 'next/link'
@@ -12,6 +13,17 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+        {/* Logo */}
+        <div className="mb-8 flex justify-center">
+          <Image
+            src="/logo.png"
+            alt="ROYCE HOUSE"
+            width={64}
+            height={64}
+            className="h-16 w-16"
+          />
+        </div>
+
         {/* Preheader */}
         <div className="mb-6 inline-block">
           <p className="text-text-muted text-sm md:text-base font-medium tracking-widest">
