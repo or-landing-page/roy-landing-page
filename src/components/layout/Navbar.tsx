@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE_CONFIG, NAV_LINKS } from '@/lib/constants'
 
@@ -46,13 +47,22 @@ export function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex flex-col items-start hover:opacity-80 transition-opacity duration-200">
-          <span className="font-display font-light text-text-primary tracking-[5px] uppercase text-sm leading-tight">
-            {SITE_CONFIG.name}
-          </span>
-          <span className="text-gold text-[8px] tracking-[3px] uppercase font-semibold leading-tight">
-            ACADEMY
-          </span>
+        <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-200">
+          <Image
+            src="/logo.png"
+            alt="ROYCE HOUSE logo"
+            width={32}
+            height={32}
+            className="h-8 w-8"
+          />
+          <div className="flex flex-col items-start">
+            <span className="font-display font-light text-text-primary tracking-[5px] uppercase text-sm leading-tight">
+              {SITE_CONFIG.name}
+            </span>
+            <span className="text-gold text-[8px] tracking-[3px] uppercase font-semibold leading-tight">
+              ACADEMY
+            </span>
+          </div>
         </a>
 
         {/* Desktop Nav */}
