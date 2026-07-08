@@ -47,7 +47,7 @@ export function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex flex-col items-start hover:opacity-80 transition-opacity duration-200">
-          <span className="font-display font-light text-cream tracking-[5px] uppercase text-sm leading-tight">
+          <span className="font-display font-light text-text-primary tracking-[5px] uppercase text-sm leading-tight">
             {SITE_CONFIG.name}
           </span>
           <span className="text-gold text-[8px] tracking-[3px] uppercase font-semibold leading-tight">
@@ -65,7 +65,7 @@ export function Navbar() {
                 <a
                   href={link.href}
                   className={`text-[11px] font-semibold tracking-[3px] uppercase transition-colors duration-200 ${
-                    isActive ? 'text-gold' : 'text-text-muted hover:text-cream'
+                    isActive ? 'text-gold' : 'text-text-muted hover:text-text-primary'
                   }`}
                 >
                   {link.label}
@@ -87,7 +87,7 @@ export function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 text-cream"
+          className="md:hidden flex flex-col gap-1.5 p-2 text-text-primary"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? 'סגור תפריט' : 'פתח תפריט'}
           aria-expanded={mobileOpen}
@@ -120,7 +120,7 @@ export function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-text-muted hover:text-cream text-[11px] font-semibold tracking-[3px] uppercase transition-colors"
+                    className="text-text-muted hover:text-text-primary text-[11px] font-semibold tracking-[3px] uppercase transition-colors"
                   >
                     {link.label}
                   </a>
