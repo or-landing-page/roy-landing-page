@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Heebo, Cormorant_Garamond } from 'next/font/google'
+import { LoadingScreen } from '@/components/ui/LoadingScreen'
 import './globals.css'
 
 const heebo = Heebo({
@@ -37,7 +38,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="he" dir="rtl" className={`${heebo.variable} ${cormorant.variable}`}>
-      <body>{children}</body>
+      <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }`,
+          }}
+        />
+        <LoadingScreen />
+        {children}
+      </body>
     </html>
   )
 }

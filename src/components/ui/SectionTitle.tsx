@@ -22,7 +22,7 @@ export function SectionTitle({
       {eyebrow && (
         <p className="text-gold text-sm font-semibold tracking-widest uppercase mb-3">{eyebrow}</p>
       )}
-      <h2 className="text-3xl md:text-5xl font-black text-text-primary leading-tight">
+      <h2 className="text-4xl md:text-6xl font-black text-text-primary leading-tight">
         {title}
         {titleHighlight && (
           <>

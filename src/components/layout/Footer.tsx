@@ -10,7 +10,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <p
-              className="font-display font-light text-cream tracking-[6px] uppercase text-xl mb-3"
+              className="font-display font-light text-text-primary tracking-[6px] uppercase text-xl mb-3"
             >
               {SITE_CONFIG.name}
             </p>
@@ -45,7 +45,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-cream text-[10px] font-semibold tracking-[3px] uppercase mb-5">
+            <h3 className="text-text-primary text-[10px] font-semibold tracking-[3px] uppercase mb-5">
               ניווט
             </h3>
             <ul className="flex flex-col gap-3" role="list">
@@ -53,7 +53,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-text-muted hover:text-cream text-xs transition-colors tracking-wide"
+                    className="text-text-muted hover:text-text-primary text-xs transition-colors tracking-wide"
                   >
                     {link.label}
                   </a>
@@ -64,12 +64,12 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-cream text-[10px] font-semibold tracking-[3px] uppercase mb-5">
+            <h3 className="text-text-primary text-[10px] font-semibold tracking-[3px] uppercase mb-5">
               צור קשר
             </h3>
             <div className="flex flex-col gap-3 text-xs text-text-muted">
               <p>{SITE_CONFIG.address}</p>
-              <p>{SITE_CONFIG.hours}</p>
+
               <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-gold transition-colors">
                 {SITE_CONFIG.email}
               </a>

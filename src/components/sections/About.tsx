@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants'
 
 export function About() {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-background">
+    <section id="about" className="py-24 sm:py-32 bg-background scroll-mt-20">
       <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>
           <p className="text-gold text-[10px] tracking-[6px] uppercase font-semibold mb-12 text-center">
@@ -17,11 +17,12 @@ export function About() {
           <AnimatedSection direction="right">
             <div className="relative aspect-[3/4] border border-gold/15 overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800&q=80"
+                src="/roi-photo.jpg"
                 alt="רוי — ספר מקצועי ומייסד RoyHouse"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
               <div
                 className="absolute inset-0"
@@ -49,24 +50,25 @@ export function About() {
               className="font-display font-light italic text-gold-light leading-relaxed mb-6"
               style={{ fontSize: 'clamp(16px, 2.5vw, 22px)' }}
             >
-              &ldquo;שיערתי לאלפי לקוחות לפני שהבנתי מה באמת מפריד ספר טוב מספר שמחפשים
-              אחריו.&rdquo;
+              &ldquo;הבנתי שחסרה שיטת לימוד אמיתית — אחת שמבוססת על הבנת מבנה הראש, לא רק על
+              חיקוי.&rdquo;
             </blockquote>
 
             <div className="w-12 h-px bg-gold/50 mb-6" />
 
             <p className="text-text-muted text-sm leading-relaxed font-light mb-8">
-              רוי הוא ספר שיער עם {SITE_CONFIG.yearsExperience}+ שנות ניסיון, מייסד RoyHouse
-              ומחנך את הדור הבא של ספרי השיער בישראל. השיטה שלו מבוססת על עקרונות פשוטים: דיוק,
-              עקביות, ולקוחות שחוזרים.
+              {/* Roy's story — content coming from client */}
+              מייסד ROYCE HOUSE ACADEMY, עם {SITE_CONFIG.yearsExperience}+ שנות ניסיון בעולם
+              הברברינג והעיצוב. הדרך שעבר — מספר שעבד לפי הרגל עד שפיתח שיטה שמבוססת על הבנת
+              מבנה הראש — היא הבסיס לכל מה שמלמד כאן.
             </p>
 
-            {/* Unique proof points instead of repeated stats */}
+            {/* Proof points — to be updated with real data */}
             <div className="flex flex-col gap-4">
               {[
-                'הכשיר 200+ ספרים — רבים מהם פתחו עסק עצמאי',
-                'ממוצע עלייה בהכנסה לבוגרים: 180% תוך 6 חודשים',
-                'הסלון הנבחר של 3,000+ לקוחות פרטיים בתל אביב',
+                `${SITE_CONFIG.studentsCount}+ בוגרים מוכשרים`,
+                'שיטת HEAD TO HAND — פותחה אחרי שנים בשטח',
+                'ליווי אישי לכל תלמיד לאורך כל הדרך',
               ].map((text) => (
                 <div key={text} className="flex items-start gap-3">
                   <span className="text-gold text-xs mt-0.5 flex-shrink-0">✦</span>

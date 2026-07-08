@@ -11,14 +11,14 @@ function getInitials(name: string) {
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 sm:py-32 bg-surface">
+    <section id="testimonials" className="py-24 sm:py-32 bg-surface scroll-mt-20">
       <div className="max-w-5xl mx-auto px-6">
         <AnimatedSection>
           <p className="text-gold text-[10px] tracking-[6px] uppercase font-semibold mb-6 text-center">
             המלצות
           </p>
           <h2
-            className="font-display font-light text-cream text-center leading-[1.15] mb-4"
+            className="font-display font-light text-text-primary text-center leading-[1.15] mb-4"
             style={{ fontSize: 'clamp(28px, 5vw, 52px)' }}
           >
             מה אומרים{' '}
@@ -29,10 +29,10 @@ export function Testimonials() {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {TESTIMONIALS.map((t, i) => (
             <AnimatedSection key={t.id} delay={i * 0.1} direction="up">
-              <div className="h-full bg-surface-2/50 border border-border hover:border-gold/25 p-7 flex flex-col transition-all duration-300">
+              <div className="h-full bg-surface-2/50 border-2 border-border rounded-lg hover:border-gold hover:shadow-lg hover:scale-105 p-7 flex flex-col transition-all duration-300">
                 {/* Stars */}
                 <div className="flex gap-1 mb-5" aria-label={`דירוג: ${t.rating} מתוך 5`}>
                   {Array.from({ length: 5 }).map((_, s) => (
@@ -44,7 +44,7 @@ export function Testimonials() {
 
                 {/* Quote */}
                 <blockquote
-                  className="font-display font-light italic text-cream/80 leading-relaxed flex-1 mb-6"
+                  className="font-display font-light italic text-text-primary/80 leading-relaxed flex-1 mb-6"
                   style={{ fontSize: '15px' }}
                 >
                   &ldquo;{t.text}&rdquo;
@@ -62,7 +62,7 @@ export function Testimonials() {
                     </span>
                   </div>
                   <div>
-                    <p className="text-cream font-semibold text-xs tracking-wide">{t.name}</p>
+                    <p className="text-text-primary font-semibold text-xs tracking-wide">{t.name}</p>
                     <p className="text-text-muted text-[10px] tracking-[1px]">
                       {t.location} · בוגר קורס
                     </p>

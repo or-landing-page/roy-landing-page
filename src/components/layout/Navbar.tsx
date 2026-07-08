@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SITE_CONFIG, NAV_LINKS } from '@/lib/constants'
 
@@ -46,11 +47,22 @@ export function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#"
-          className="font-display font-light text-cream tracking-[6px] uppercase text-lg hover:text-gold transition-colors duration-200"
-        >
-          {SITE_CONFIG.name}
+        <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-200">
+          <Image
+            src="/logo.png"
+            alt="ROYCE HOUSE logo"
+            width={32}
+            height={32}
+            className="h-8 w-8"
+          />
+          <div className="flex flex-col items-start">
+            <span className="font-display font-light text-text-primary tracking-[5px] uppercase text-sm leading-tight">
+              {SITE_CONFIG.name}
+            </span>
+            <span className="text-gold text-[8px] tracking-[3px] uppercase font-semibold leading-tight">
+              ACADEMY
+            </span>
+          </div>
         </a>
 
         {/* Desktop Nav */}
@@ -63,7 +75,7 @@ export function Navbar() {
                 <a
                   href={link.href}
                   className={`text-[11px] font-semibold tracking-[3px] uppercase transition-colors duration-200 ${
-                    isActive ? 'text-gold' : 'text-text-muted hover:text-cream'
+                    isActive ? 'text-gold' : 'text-text-muted hover:text-text-primary'
                   }`}
                 >
                   {link.label}
@@ -78,14 +90,14 @@ export function Navbar() {
           href={SITE_CONFIG.whatsappCoursesLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex bg-gold hover:bg-gold-light text-background font-bold px-6 py-2.5 text-[10px] tracking-[2px] uppercase transition-all duration-200 hover:scale-105"
+          className="hidden md:inline-flex bg-gold hover:bg-gold-light text-background font-bold px-6 py-2.5 text-[10px] tracking-[2px] uppercase rounded-full shadow-lg shadow-gold/20 transition-all duration-200 hover:scale-105"
         >
           הצטרף לקורס ←
         </a>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 text-cream"
+          className="md:hidden flex flex-col gap-1.5 p-2 text-text-primary"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label={mobileOpen ? 'סגור תפריט' : 'פתח תפריט'}
           aria-expanded={mobileOpen}
@@ -118,7 +130,7 @@ export function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-text-muted hover:text-cream text-[11px] font-semibold tracking-[3px] uppercase transition-colors"
+                    className="text-text-muted hover:text-text-primary text-[11px] font-semibold tracking-[3px] uppercase transition-colors"
                   >
                     {link.label}
                   </a>
@@ -129,7 +141,7 @@ export function Navbar() {
                   href={SITE_CONFIG.whatsappCoursesLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center bg-gold text-background font-bold px-6 py-3 text-[10px] tracking-[2px] uppercase"
+                  className="block w-full text-center bg-gold text-background font-bold px-6 py-3 text-[10px] tracking-[2px] uppercase rounded-full shadow-lg shadow-gold/20"
                 >
                   הצטרף לקורס ←
                 </a>
